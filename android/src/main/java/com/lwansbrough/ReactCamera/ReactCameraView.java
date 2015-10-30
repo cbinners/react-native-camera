@@ -9,6 +9,7 @@ import com.facebook.react.bridge.ReactContext;
 import com.facebook.react.bridge.ReactContextBaseJavaModule;
 import com.facebook.react.bridge.ReactMethod;
 import com.facebook.react.uimanager.ThemedReactContext;
+import com.facebook.react.uimanager.UIProp;
 
 import android.view.SurfaceView;
 import android.view.SurfaceHolder;
@@ -20,6 +21,15 @@ class ReactCameraView extends SurfaceView implements SurfaceHolder.Callback {
     SurfaceHolder surfaceHolder;
     Camera camera;
     ThemedReactContext context;
+
+    @UIProp(UIProp.Type.STRING)
+    public static final String PROP_PLACEHOLDERPROP = "placeholderprop";
+
+    @UIProp(UIProp.Type.NUMBER)
+    public static final String PROP_SCALEXPROP = "scaleX";
+
+    @UIProp(UIProp.Type.NUMBER)
+    public static final String PROP_SCALEYPROP = "scaleY";
 
     public ReactCameraView(ThemedReactContext context, Camera camera) {
         super(context);
