@@ -37,7 +37,10 @@ var ReactCameraView = requireNativeComponent('ReactCameraView', {
         PropTypes.number
       ])
     }
-});
+  },
+  {
+    nativeOnly: {scaleX: true,scaleY: true,translateX: true,translateY: true}
+  });
 
 var Camera = React.createClass({
     render () {
