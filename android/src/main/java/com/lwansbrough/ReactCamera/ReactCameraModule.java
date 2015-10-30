@@ -19,7 +19,7 @@ import java.io.ByteArrayOutputStream;
 public class ReactCameraModule extends ReactContextBaseJavaModule {
     ReactApplicationContext reactContext;
 
-    private Boolean locked = false;
+    private static Boolean locked = false;
 
     public ReactCameraModule(ReactApplicationContext reactContext) {
         super(reactContext);
@@ -36,9 +36,9 @@ public class ReactCameraModule extends ReactContextBaseJavaModule {
     public void capture(final Callback successCallback) {
         final Callback cb = successCallback;
         Camera camera = Helper.getCamera();
-        if (camera != null && !this.locked) {
+        if (camera != null && !locked) {
           Helper.getCamera().takePicture(null, null, new MyPictureCallback(cb));
-          this.locked = true;
+          locked = true;
         }
     }
 
@@ -54,7 +54,7 @@ public class ReactCameraModule extends ReactContextBaseJavaModule {
             camera.startPreview();
             String encoded = Base64.encodeToString(data, Base64.DEFAULT);
             callback.invoke(encoded);
-            this.locked = false;
+            locked = false;
         }
     }
 }
