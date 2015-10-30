@@ -31,7 +31,10 @@ public class ReactCameraModule extends ReactContextBaseJavaModule {
     @ReactMethod
     public void capture(final Callback successCallback) {
         final Callback cb = successCallback;
-        Helper.getCamera().takePicture(null, null, new MyPictureCallback(cb));
+        Camera camera = Helper.getCamera();
+        if (camera != null) {
+          Helper.getCamera().takePicture(null, null, new MyPictureCallback(cb));
+        }
     }
 
     private class MyPictureCallback implements Camera.PictureCallback {
