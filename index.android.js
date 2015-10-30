@@ -9,7 +9,18 @@ var ReactCameraView = requireNativeComponent('ReactCameraView', {
     }
 });
 
-var ReactCameraViewWrapper = React.createClass({
+var constants = {
+  Aspect: NativeModules.CameraManager.Aspect,
+  BarCodeType: NativeModules.CameraManager.BarCodeType,
+  Type: NativeModules.CameraManager.Type,
+  CaptureMode: NativeModules.CameraManager.CaptureMode,
+  CaptureTarget: NativeModules.CameraManager.CaptureTarget,
+  Orientation: NativeModules.CameraManager.Orientation,
+  FlashMode: NativeModules.CameraManager.FlashMode,
+  TorchMode: NativeModules.CameraManager.TorchMode,
+};
+
+var Camera = React.createClass({
 
     render () {
         return (
@@ -28,4 +39,5 @@ var ReactCameraViewWrapper = React.createClass({
     }
 });
 
-module.exports = ReactCameraViewWrapper;
+Camera.constants = constants;
+module.exports = Camera;
