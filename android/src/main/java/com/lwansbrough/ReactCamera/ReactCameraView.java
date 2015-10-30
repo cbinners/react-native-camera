@@ -22,9 +22,6 @@ class ReactCameraView extends SurfaceView implements SurfaceHolder.Callback {
     Camera camera;
     ThemedReactContext context;
 
-    @UIProp(UIProp.Type.STRING)
-    public static final String PROP_PLACEHOLDERPROP = "placeholderprop";
-
     @UIProp(UIProp.Type.NUMBER)
     public static final String PROP_SCALEXPROP = "scaleX";
 
